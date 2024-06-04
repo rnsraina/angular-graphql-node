@@ -1,0 +1,15 @@
+<h1>Reactive Form</h1>
+<form [formGroup]="userForm" (ngSubmit)="handleFormSubmit()">
+  <div>
+    <label>Name: </label>
+    <input type="text" class="form-control" formControlName="uName"/>
+    <span class="error" *ngIf="userForm.get('uName')?.touched &&
+    userForm.get('uName')?.invalid">Name is required
+    </span>
+  </div>
+  <div>
+    <label>Age: </label>
+    <input type="text" required class="form-control" formControlName="uAge"/>
+  </div>
+  <button class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+</form>
